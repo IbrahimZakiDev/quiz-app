@@ -133,7 +133,7 @@ function generateEndPage() {
   if (store.score < 3) {
     feedback = "Oops! Looks like you might need to spend a little more time studying!"
   }
-  else if (3 < store.score && store.score < 5) {
+  else if (store.score >= 3 && store.score < 5) {
     feedback = "Great job, but there is always room for improvement!"
   }
   else if (store.score = 5) {
@@ -226,6 +226,7 @@ $("main").submit("#submit-button", e => {
 function handleNextQuestion() {
   $("main").on("click", "#next-button", event => {
     store.questionNumber+=1
+    console.log(store.score)
     renderPage()
   })
 }
